@@ -17,27 +17,27 @@ class MenuEventoProvider extends ServiceProvider
             $event->menu->add(
                 [
                     'text'       => 'Informações Gerais do Evento',
-                    'url'        => '',
+                    'url'        => route('evento.informacoesGerais'),
                     'icon_color' => 'aqua',
                 ],
                 [
                     'text'       => 'Arquivos do Evento',
-                    'url'        => '',
+                    'url'        => route('evento.arquivosDoEvento'),
                     'icon_color' => 'aqua',
                 ],
                 [
                     'text'       => 'Dados do Produtor',
-                    'url'        => '',
+                    'url'        => route('evento.dadosDoProdutor'),
                     'icon_color' => 'aqua',
                 ],
                 [
                     'text'       => 'Arquivos Para Comunicação e Produção',
-                    'url'        => '',
+                    'url'        => route('evento.arquivosComunicacaoProducao'),
                     'icon_color' => 'aqua',
                 ],
                 [
                     'text'       => 'Cadastro do Proponente',
-                    'url'        => '',
+                    'url'        => route('evento.cadastroDoProponente'),
                     'icon_color' => 'aqua',
                 ]
         
