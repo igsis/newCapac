@@ -14,3 +14,7 @@ Route::get('/dadosDoProdutor',                  'EventoController@dadosDoProduto
 Route::get('/arquivosComunicacaoProducao',      'EventoController@arquivosComunicacaoProducao')->name('evento.arquivosComunicacaoProducao');
 
 Route::get('/cadastroDoProponente',             'EventoController@cadastroDoProponente')->name('evento.cadastroDoProponente');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
