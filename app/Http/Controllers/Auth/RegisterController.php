@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace capac\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use capac\Models\User;
+use capac\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

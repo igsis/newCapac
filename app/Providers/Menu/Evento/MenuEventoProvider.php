@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers\Menu\Evento;
+namespace capac\Providers\Menu\Evento;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
