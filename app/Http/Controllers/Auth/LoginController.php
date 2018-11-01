@@ -6,6 +6,7 @@ use capac\Models\User;
 use Illuminate\Http\Request;
 use capac\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
