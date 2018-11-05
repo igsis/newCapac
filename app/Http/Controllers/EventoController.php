@@ -9,6 +9,7 @@ class EventoController extends Controller
 {
     public function index(){
         session()->put('evento', false);
+        session()->put('cache', false);
         return view('evento.index');
         
     }
@@ -16,7 +17,8 @@ class EventoController extends Controller
     public function informacoes(Request $request){
 
         if($request->eventoComCache){
-            $ev = $request->session()->put('evento', true);
+            session()->put('evento', true);
+            session()->put('cache', true);
 
            
 
@@ -24,12 +26,12 @@ class EventoController extends Controller
         }
 
         if($request->eventoSemCache){
-            $request->session()->put('evento', true);
+            session()->put('evento', true);
             return view('evento.informacoes.eventoSemCache');
         }
 
         if($request->eventoSemContracao){
-            $request->session()->put('evento', true);
+            session()->put('evento', true);
             return view('evento.informacoes.eventoSemContratacao');
         }
     }

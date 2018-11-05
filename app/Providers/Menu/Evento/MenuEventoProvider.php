@@ -24,7 +24,7 @@ class MenuEventoProvider extends ServiceProvider
             });
 
             Gate::define('cache', function ($user) {
-                if(session()->get('evento') == true){
+                if(session()->get('cache') == true){
                     return $user;
                 }
             });
