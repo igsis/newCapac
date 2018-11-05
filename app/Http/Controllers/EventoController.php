@@ -3,9 +3,37 @@
 namespace capac\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Gate;
 
 class EventoController extends Controller
 {
+    public function index(){
+        session()->put('evento', false);
+        return view('evento.index');
+        
+    }
+
+    public function informacoes(Request $request){
+
+        if($request->eventoComCache){
+            $ev = $request->session()->put('evento', true);
+
+           
+
+            return view('evento.informacoes.eventoComCache');
+        }
+
+        if($request->eventoSemCache){
+            $request->session()->put('evento', true);
+            return view('evento.informacoes.eventoSemCache');
+        }
+
+        if($request->eventoSemContracao){
+            $request->session()->put('evento', true);
+            return view('evento.informacoes.eventoSemContratacao');
+        }
+    }
+
     public function informacoesGerais(){
         return view('evento.ComCache.informacoes_gerais');
     }
