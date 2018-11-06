@@ -30,6 +30,8 @@ class EventoController extends Controller
 
         session()->put($tipos[$request->tipo], true);
 
+        // redirect para info do evento de acordo com o tipo
+
         if($tipos[$request->tipo] == 'evento'){
             return view('evento.informacoes.eventoComCache');
         }
@@ -41,7 +43,6 @@ class EventoController extends Controller
         if($tipos[$request->tipo] == 'semContratacao'){
             return view('evento.informacoes.eventoSemContratacao');
         }
-
     }
 
     public function informacoesGerais(){
