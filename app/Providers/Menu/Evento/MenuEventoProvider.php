@@ -23,8 +23,14 @@ class MenuEventoProvider extends ServiceProvider
                 }
             });
 
-            Gate::define('cache', function ($user) {
-                if(session()->get('cache') == true){
+            Gate::define('semCache', function ($user) {
+                if(!session()->get('semCache') == true){
+                    return $user;
+                }
+            });
+
+            Gate::define('semContratacao', function ($user) {
+                if(!session()->get('semContratacao') == true){
                     return $user;
                 }
             });
@@ -45,7 +51,7 @@ class MenuEventoProvider extends ServiceProvider
                     'text'       => 'Informações Evento',
                     'url'        => 'evento.informacoes',
                     'icon'       => ' fa-question-circle',
-                    'can'        =>  ['evento', 'cache'],
+                    'can'        =>  'evento', 
                     
                 ],
                 [
@@ -58,7 +64,7 @@ class MenuEventoProvider extends ServiceProvider
                     'text'       => 'Arquivos do Evento',
                     'url'        => route('evento.arquivosDoEvento'),
                     'icon_color' => 'aqua',
-                    'can'        =>  'evento',
+                    'can'        =>  ['evento', 'semContratacao'],
                 ],
                 [
                     'text'       => 'Dados do Produtor',
