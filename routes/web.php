@@ -14,7 +14,7 @@ Route::group(['prefix' => 'evento'], function(){
 
     Route::get('/', 'EventoController@index')->name('evento');
 
-    Route::any('/informacoes', 'EventoController@informacoes')->name('evento.informacoes');
+    Route::any('/inserir', 'EventoController@inserir')->name('evento.inserir');
 
     Route::get('/informacoesGerais', 'EventoController@informacoesGerais')->name('evento.informacoesGerais');
 

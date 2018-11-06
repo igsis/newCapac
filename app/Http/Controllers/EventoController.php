@@ -2,38 +2,46 @@
 
 namespace capac\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Gate;
+use capac\Models\TipoEvento;
+use Illuminate\Http\Request;
 
 class EventoController extends Controller
 {
     public function index(){
         session()->put('evento', false);
-        session()->put('cache', false);
-        return view('evento.index');
+        session()->put('semCache', false);
+        session()->put('semContratacao', false);
+        
+        
+        $tipos = TipoEvento::all();
+
+        return view('evento.index', compact('tipos'));
         
     }
 
-    public function informacoes(Request $request){
+    public function inserir(Request $request){
 
-        if($request->eventoComCache){
-            session()->put('evento', true);
-            session()->put('cache', true);
+        $tipos = [
+            '1' => 'evento', 
+            '2' => 'semCache',
+            '3' => 'semContratacao'
+        ];
 
-           
+        session()->put($tipos[$request->tipo], true);
 
+        if($tipos[$request->tipo] == 'evento'){
             return view('evento.informacoes.eventoComCache');
         }
 
-        if($request->eventoSemCache){
-            session()->put('evento', true);
+        if($tipos[$request->tipo] == 'semCache'){
             return view('evento.informacoes.eventoSemCache');
         }
 
-        if($request->eventoSemContracao){
-            session()->put('evento', true);
+        if($tipos[$request->tipo] == 'semContratacao'){
             return view('evento.informacoes.eventoSemContratacao');
         }
+
     }
 
     public function informacoesGerais(){

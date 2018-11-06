@@ -43,7 +43,7 @@ class MenuEventoProvider extends ServiceProvider
                 ],
                 [
                     'text'       => 'Informações Evento',
-                    'url'        => route('evento.informacoes'),
+                    'url'        => 'evento.informacoes',
                     'icon'       => ' fa-question-circle',
                     'can'        =>  ['evento', 'cache'],
                     
