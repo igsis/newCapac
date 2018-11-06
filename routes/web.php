@@ -27,3 +27,9 @@ Route::group(['prefix' => 'evento'], function(){
     Route::get('/cadastroDoProponente', 'EventoController@cadastroDoProponente')->name('evento.cadastroDoProponente');
 
 });
+
+Route::group(['prefix' => 'usuario'], function() {
+
+    Route::get('{id}/conta', 'UserController@contaExibir')->name('usuario.contaExibir');
+
+});

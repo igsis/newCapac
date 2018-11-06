@@ -51,6 +51,12 @@
                 font-size: 90px;
             }
 
+            .texto {
+                font-size: 24px;
+                font-family: 'Righteous', cursive;
+                font-size: 30px;
+            }
+
             .links > a {
                 color: white;
                 padding: 0 25px;
@@ -85,6 +91,9 @@
             <div class="content">
                 <div class="title m-b-md">
                     CAPAC
+                </div>
+                <div class="texto m-b-md">
+                    CADASTRO DE ARTISTAS E PROFISSIONAIS DE ARTE E CULTURA
                 </div>
 
             </div>
