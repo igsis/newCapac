@@ -30,6 +30,8 @@ Route::group(['prefix' => 'evento'], function(){
 
 Route::group(['prefix' => 'usuario'], function() {
 
-    Route::get('{id}/conta', 'UserController@contaExibir')->name('usuario.contaExibir');
+    Route::get('{usuario}/conta', 'UserController@contaExibir')->name('usuario.contaExibir');
+
+    Route::put('{usuario}/atualizar', 'UserController@contaEditar')->name('usuario.contaEditar');
 
 });

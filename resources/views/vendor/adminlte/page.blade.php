@@ -58,7 +58,7 @@
 
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ route('usuario.contaExibir', 1) }}">
+                            <a href="{{ route('usuario.contaExibir', Auth::user()->id) }}">
                                 <i class="fa fa-fw fa-user"></i> {{ trans('adminlte::adminlte.my_account') }}
                             </a>
                         </li>
@@ -115,6 +115,13 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 @yield('content_header')
+
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <p>{!! session('flash_message') !!}</p>
+                    </div>
+                @endif
             </section>
 
             <!-- Main content -->

@@ -12,14 +12,23 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function contaExibir($id){
-
-        $usuario = User::findOrFail($id);
+    public function contaExibir(User $usuario)
+    {
         return view('usuario.editar', compact('usuario'));
     }
 
-    public function atualizar($id)
+    public function contaEditar(Request $request, User $usuario)
     {
-        //
+        $data = $this->validate($request, [
+            'nome'  =>  'required',
+            'email' =>  'required|email|unique:users,email,'.$usuario->id
+        ]);
+
+        $usuario->update([
+            'name'  =>  $request->nome,
+            'email' =>  $request->email
+        ]);
+
+        return redirect()->back()->with('flash_message', 'Cadastro Atualizado com Sucesso!');
     }
 }
