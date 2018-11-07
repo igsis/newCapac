@@ -116,17 +116,22 @@
             <section class="content-header">
                 @yield('content_header')
 
+
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
                 @if(Session::has('flash_message'))
                     <div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <p>{!! session('flash_message') !!}</p>
                     </div>
                 @endif
-            </section>
+                @if(Session::has('warning'))
+                
+                    <div class="alert alert-warning"><em> {!! session('warning') !!}</em></div>
 
-            <!-- Main content -->
-            <section class="content">
-
+                @endif
                 @yield('content')
 
             </section>
